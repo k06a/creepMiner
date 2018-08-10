@@ -93,7 +93,8 @@ namespace Burst
 		Sse2 = 1 << 0,
 		Sse4 = 1 << 1,
 		Avx = 1 << 2,
-		Avx2 = 1 << 3
+		Avx2 = 1 << 3,
+		Neon = 1 << 4
 	};
 
 	bool isNumberStr(const std::string& str);

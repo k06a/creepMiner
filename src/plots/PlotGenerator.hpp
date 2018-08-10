@@ -45,6 +45,7 @@ namespace Burst
 		static std::array<std::vector<char>, Shabal256Avx::HashSize> generateAvx(Poco::UInt64 account, Poco::UInt64 startNonce);
 		static std::array<std::vector<char>, Shabal256Sse4::HashSize> generateSse4(Poco::UInt64 account, Poco::UInt64 startNonce);
 		static std::array<std::vector<char>, Shabal256Avx2::HashSize> generateAvx2(Poco::UInt64 account, Poco::UInt64 startNonce);
+		static std::array<std::vector<char>, Shabal256Neon::HashSize> generateNeon(Poco::UInt64 account, Poco::UInt64 startNonce);
 
 		static Poco::UInt64 calculateDeadlineSse2(std::vector<char>& gendata,
 			GensigData& generationSignature, Poco::UInt64 scoop, Poco::UInt64 baseTarget);
@@ -59,6 +60,10 @@ namespace Burst
 
 		static std::array<Poco::UInt64, Shabal256Avx2::HashSize> calculateDeadlineAvx2(
 			std::array<std::vector<char>, Shabal256Avx2::HashSize>& gendatas,
+			GensigData& generationSignature, Poco::UInt64 scoop, Poco::UInt64 baseTarget);
+
+		static std::array<Poco::UInt64, Shabal256_NEON::HashSize> calculateDeadlineNeon(
+			std::array<std::vector<char>, Shabal256_NEON::HashSize>& gendatas,
 			GensigData& generationSignature, Poco::UInt64 scoop, Poco::UInt64 baseTarget);
 
 	private:

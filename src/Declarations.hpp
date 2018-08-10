@@ -103,7 +103,7 @@ namespace Burst
 		extern std::string cpuInstructionSet;
 		extern ProjectData project;
 
-		extern const bool sse4, avx, avx2, cuda, openCl;
+		extern const bool sse4, avx, avx2, neon, cuda, openCl;
 
 		void setCpuInstructionSet(std::string cpuInstructionSet);
 	};

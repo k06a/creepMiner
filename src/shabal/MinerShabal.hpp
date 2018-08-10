@@ -26,6 +26,7 @@
 #include "shabal/impl/mshabal_avx2_impl.hpp"
 #include "shabal/impl/mshabal_avx_impl.hpp"
 #include "shabal/impl/mshabal_sse4_impl.hpp"
+#include "shabal/impl/mshabal_neon_impl.hpp"
 #include "shabal/impl/sphlib_impl.hpp"
 #include <Poco/ByteOrder.h>
 
@@ -68,4 +69,5 @@ namespace Burst
 	using Shabal256Avx = Shabal256Shell<MshabalAvxImpl>;
 	using Shabal256Sse4 = Shabal256Shell<MshabalSse4Impl>;
 	using Shabal256Sse2 = Shabal256Shell<SphlibImpl>;
+	using Shabal256Neon = Shabal256Shell<MshabalNeonImpl>;
 }

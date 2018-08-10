@@ -938,14 +938,23 @@ bool Burst::cpuHasInstructionSet(CpuInstructionSet cpuInstructionSet)
 	case Sse4: return (instructionSets & Sse4) == Sse4;
 	case Avx: return (instructionSets & Avx) == Avx;
 	case Avx2: return (instructionSets & Avx2) == Avx2;
+	case Neon: return (instructionSets & Neon) == Neon;
 	default: return false;
 	}
 }
 
 int Burst::cpuGetInstructionSets()
 {
-#if defined __arm__ || defined __aarch64__
+#if defined __aarch64__
 	return Sse2;
+
+#if defined __arm__
+#if defined __ARM_NEON__ || defined __ARM_FEATURE_SIMD32
+	return Neon;
+#endif
+	return Sse2;
+#endif
+
 #elif defined __GNUC__
 	auto instructionSets = 0;
 

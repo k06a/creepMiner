@@ -284,16 +284,19 @@ namespace Burst
 	using PlotVerifierOperationSse4 = PlotVerifierOperations4<Shabal256Sse4>;
 	using PlotVerifierOperationAvx = PlotVerifierOperations4<Shabal256Avx>;
 	using PlotVerifierOperationAvx2 = PlotVerifierOperations8<Shabal256Avx2>;
+	using PlotVerifierOperationNeon = PlotVerifierOperations4<Shabal256Neon>;
 
 	using PlotVerifierAlgorithmSse2 = PlotVerifierAlgorithmCpu<Shabal256Sse2, PlotVerifierOperationSse2>;
 	using PlotVerifierAlgorithmSse4 = PlotVerifierAlgorithmCpu<Shabal256Sse4, PlotVerifierOperationSse4>;
 	using PlotVerifierAlgorithmAvx = PlotVerifierAlgorithmCpu<Shabal256Avx, PlotVerifierOperationAvx>;
 	using PlotVerifierAlgorithmAvx2 = PlotVerifierAlgorithmCpu<Shabal256Avx2, PlotVerifierOperationAvx2>;
+	using PlotVerifierAlgorithmNeon = PlotVerifierAlgorithmCpu<Shabal256Neon, PlotVerifierOperationNeon>;
 
 	using PlotVerifierSse2 = PlotVerifier<PlotVerifierAlgorithmSse2>;
 	using PlotVerifierSse4 = PlotVerifier<PlotVerifierAlgorithmSse4>;
 	using PlotVerifierAvx = PlotVerifier<PlotVerifierAlgorithmAvx>;
 	using PlotVerifierAvx2 = PlotVerifier<PlotVerifierAlgorithmAvx2>;
+	using PlotVerifierNeon = PlotVerifier<PlotVerifierAlgorithmNeon>;
 
 	using PlotVerifierAlgorithmCuda = PlotVerifierAlgorithm_gpu<GpuCuda, GpuAlgorithmAtomic>;
 	using PlotVerifierAlgorithmOpencl = PlotVerifierAlgorithm_gpu<GpuOpenCl, GpuAlgorithmAtomic>;
