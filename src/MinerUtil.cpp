@@ -945,15 +945,12 @@ bool Burst::cpuHasInstructionSet(CpuInstructionSet cpuInstructionSet)
 
 int Burst::cpuGetInstructionSets()
 {
-#if defined __aarch64__
-	return Sse2;
-
 #if defined __arm__
+
 #if defined __ARM_NEON__ || defined __ARM_FEATURE_SIMD32
 	return Neon;
 #endif
 	return Sse2;
-#endif
 
 #elif defined __GNUC__
 	auto instructionSets = 0;
