@@ -226,9 +226,9 @@ std::array<std::vector<char>, Burst::Shabal256Avx2::HashSize> Burst::PlotGenerat
 	return generate<Shabal256Avx2, PlotGeneratorOperations8<Shabal256Avx2>>(account, startNonce);
 }
 
-std::array<std::vector<char>, Burst::Shabal256_NEON::HashSize> Burst::PlotGenerator::generateNeon(const Poco::UInt64 account, const Poco::UInt64 startNonce)
+std::array<std::vector<char>, Burst::Shabal256Neon::HashSize> Burst::PlotGenerator::generateNeon(const Poco::UInt64 account, const Poco::UInt64 startNonce)
 {
-	return generate<Shabal256_NEON, PlotGeneratorOperations4<Shabal256_NEON>>(account, startNonce);
+	return generate<Shabal256Neon, PlotGeneratorOperations4<Shabal256Neon>>(account, startNonce);
 }
 
 Poco::UInt64 Burst::PlotGenerator::calculateDeadlineSse2(std::vector<char>& gendata,
@@ -259,11 +259,11 @@ std::array<Poco::UInt64, Burst::Shabal256Avx2::HashSize> Burst::PlotGenerator::
 	return calculateDeadline<Shabal256Avx2, PlotGeneratorOperations8<Shabal256Avx2>>(gendatas, generationSignature, scoop, baseTarget);
 }
 
-std::array<Poco::UInt64, Burst::Shabal256_NEON::HashSize> Burst::PlotGenerator::
-	calculateDeadlineNeon(std::array<std::vector<char>, Shabal256_NEON::HashSize>& gendatas,
+std::array<Poco::UInt64, Burst::Shabal256Neon::HashSize> Burst::PlotGenerator::
+	calculateDeadlineNeon(std::array<std::vector<char>, Shabal256Neon::HashSize>& gendatas,
 		GensigData& generationSignature, const Poco::UInt64 scoop, const Poco::UInt64 baseTarget)
 {
-	return calculateDeadline<Shabal256_NEON, PlotGeneratorOperations4<Shabal256_NEON>>(gendatas, generationSignature, scoop, baseTarget);
+	return calculateDeadline<Shabal256Neon, PlotGeneratorOperations4<Shabal256Neon>>(gendatas, generationSignature, scoop, baseTarget);
 }
 
 void Burst::PlotGenerator::convertToPoC2(char* gendata)

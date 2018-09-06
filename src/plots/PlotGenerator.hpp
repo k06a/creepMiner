@@ -62,8 +62,8 @@ namespace Burst
 			std::array<std::vector<char>, Shabal256Avx2::HashSize>& gendatas,
 			GensigData& generationSignature, Poco::UInt64 scoop, Poco::UInt64 baseTarget);
 
-		static std::array<Poco::UInt64, Shabal256_NEON::HashSize> calculateDeadlineNeon(
-			std::array<std::vector<char>, Shabal256_NEON::HashSize>& gendatas,
+		static std::array<Poco::UInt64, Shabal256Neon::HashSize> calculateDeadlineNeon(
+			std::array<std::vector<char>, Shabal256Neon::HashSize>& gendatas,
 			GensigData& generationSignature, Poco::UInt64 scoop, Poco::UInt64 baseTarget);
 
 	private:
